@@ -1,4 +1,6 @@
 import React from 'react';
+import SummaryItem from '../SummaryItem/SummaryItem';
+import SummaryTotal from '../SummaryTotal/SummaryTotal';
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -7,35 +9,30 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 class SummaryBox extends React.Component {
     render() {
-        const summary = Object.keys(this.props.selected).map((feature, idx) => {
+        const summaryItems = Object.keys(this.props.selected).map((feature, idx) => {
             const featureHash = feature + '-' + idx;
             const selectedOption = this.props.selected[feature];
       
             return (
-              <div className="summary__option" key={featureHash}>
-                <div className="summary__option__label">{feature} </div>
-                <div className="summary__option__value">{selectedOption.name}</div>
-                <div className="summary__option__cost">
-                  {USCurrencyFormat.format(selectedOption.cost)}
-                </div>
-              </div>
+                <SummaryItem
+                    key={featureHash}
+                    id={featureHash}
+                    feature={feature}
+                    selected={selectedOption.name}
+                    cost={USCurrencyFormat.format(selectedOption.cost)}/>
             );
         });
         const total = Object.keys(this.props.selected).reduce(
             (acc, curr) => acc + this.props.selected[curr].cost,
             0
           );
+
         return (
             <section className="main__summary">
                 <h2>Your cart</h2>
-                {/* SUMMARY FEATUER COMPONENT */}
-                {summary}
-                <div className="summary__total">
-                    <div className="summary__total__label">Total</div>
-                    <div className="summary__total__value">
-                        {USCurrencyFormat.format(total)}
-                    </div>
-                </div>
+                {summaryItems}
+                <SummaryTotal
+                    total={USCurrencyFormat.format(total)}/>
           </section>
         )
     }

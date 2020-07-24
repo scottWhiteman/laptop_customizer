@@ -14,29 +14,12 @@ class Feature extends React.Component {
             //Feature with index
             const featureHash = feature + '-' + idx;
       
-            /////////////////////////////////////////////////////////////
-            //Each option with feature
             const options = this.props.features[feature].map(item => {
               //Slugify turns Object of stuff into a string
               const jsonItem = JSON.stringify(item)
               const itemHash = slugify(jsonItem);
               const currencyFormat = USCurrencyFormat.format(item.cost)
-              //Display each feature-item on customizable list
-              //Component? Child of Header
               return (
-                // <div key={itemHash} className="feature__item">
-                //   <input
-                //     type="radio"
-                //     id={itemHash}
-                //     className="feature__option"
-                //     name={slugify(feature)}
-                //     checked={item.name === this.props.selectedFeature.name}
-                //     onChange={() => this.props.updateCheck(feature, item)}
-                //   />
-                //   <label htmlFor={itemHash} className="feature__label">
-                //     {item.name} ({USCurrencyFormat.format(item.cost)})
-                //   </label>
-                // </div>
                 <FeatureTypeItem
                     key={itemHash}
                     id={itemHash}
