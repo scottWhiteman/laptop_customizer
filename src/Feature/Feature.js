@@ -1,6 +1,7 @@
 import React from 'react';
 import slugify from 'slugify';
 import FeatureType from '../FeatureType/FeatureType';
+import FeatureTypeItem from '../FeatureTypeItem/FeatureTypeItem';
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -21,23 +22,32 @@ class Feature extends React.Component {
               console.log(jsonItem)
               const itemHash = slugify(jsonItem);
               console.log(itemHash);
-      
+              const currencyFormat = USCurrencyFormat.format(item.cost)
               //Display each feature-item on customizable list
               //Component? Child of Header
               return (
-                <div key={itemHash} className="feature__item">
-                  <input
-                    type="radio"
+                // <div key={itemHash} className="feature__item">
+                //   <input
+                //     type="radio"
+                //     id={itemHash}
+                //     className="feature__option"
+                //     name={slugify(feature)}
+                //     checked={item.name === this.props.selectedFeature.name}
+                //     onChange={() => this.props.updateCheck(feature, item)}
+                //   />
+                //   <label htmlFor={itemHash} className="feature__label">
+                //     {item.name} ({USCurrencyFormat.format(item.cost)})
+                //   </label>
+                // </div>
+                <FeatureTypeItem
+                    key={itemHash}
                     id={itemHash}
-                    className="feature__option"
                     name={slugify(feature)}
+                    item={item}
                     checked={item.name === this.props.selectedFeature.name}
-                    onChange={() => this.props.updateCheck(feature, item)}
-                  />
-                  <label htmlFor={itemHash} className="feature__label">
-                    {item.name} ({USCurrencyFormat.format(item.cost)})
-                  </label>
-                </div>
+                    updateCheck={this.props.updateCheck}
+                    currency={currencyFormat}
+                    />
               );
             });
             ///////////////////////////////////////////////////////////
@@ -46,12 +56,14 @@ class Feature extends React.Component {
             return (
             <FeatureType 
                 key={featureHash}
+                id={featureHash}
                 title={feature}
                 options={options}/>
             );
           });
         return (
             <form className="main__form">
+                <h2>Customize your laptop</h2>
                 {features}
             </form>
         )

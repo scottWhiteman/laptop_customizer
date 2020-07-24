@@ -1,11 +1,20 @@
 import React from 'react';
-import slugify from 'slugify';
 
 class FeatureTypeItem extends React.Component {
     render() {
         return (
-            <div className="feature__item">
-                
+            <div key={this.props.id} className="feature__item">
+                <input
+                type="radio"
+                id={this.props.id}
+                className="feature__option"
+                name={this.props.feature}
+                checked={this.props.checked}
+                onChange={() => this.props.updateCheck(this.props.feature, this.props.item)}
+                />
+                <label htmlFor={this.props.id} className="feature__label">
+                {this.props.item.name} ({this.props.currency})
+                </label>
             </div>
         );
     }

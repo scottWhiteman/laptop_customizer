@@ -3,7 +3,7 @@ import React from 'react';
 class FeatureType extends React.Component {
     render() {
         return (
-              <fieldset className="feature" key={this.props.key}>
+              <fieldset className="feature" key={this.props.id}>
                 <legend className="feature__name">
                   <h3>{this.props.title}</h3>
                 </legend>
