@@ -1,5 +1,6 @@
 import React from 'react';
 import slugify from 'slugify';
+import FeatureType from '../FeatureType/FeatureType';
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -43,12 +44,10 @@ class Feature extends React.Component {
             //Feature Container and Header
             //Can be Component with Feature-Items as children
             return (
-              <fieldset className="feature" key={featureHash}>
-                <legend className="feature__name">
-                  <h3>{feature}</h3>
-                </legend>
-                {options}
-              </fieldset>
+            <FeatureType 
+                key={featureHash}
+                title={feature}
+                options={options}/>
             );
           });
         return (
