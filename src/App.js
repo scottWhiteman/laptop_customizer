@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import FeatureTypeItem from './FeatureTypeItem/FeatureTypeItem';
+import Feature from './Feature/Feature';
+//import FeatureTypeItem from './FeatureTypeItem/FeatureTypeItem';
 
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
@@ -123,12 +124,10 @@ class App extends Component {
 
         <main>
           {/* FEATURE COMPONENT */}
-          <form className="main__form">
-            <h2>Customize your laptop</h2>
-            {/* FEATURE TYPE COMPONENT */}
-            {/* FEATURE TYPE ITEM COMPONENT*/}
-            {features}
-          </form>
+          <Feature
+            features={this.props.features}
+            selectedFeature={this.state.selected}
+            updateCheck={this.updateFeature}/>
           {/* FEATURE COMPONENT */}
 
           {/* SUMMARY COMPONENT */}
