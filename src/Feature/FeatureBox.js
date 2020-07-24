@@ -8,9 +8,9 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     currency: 'USD'
   });
 
-class Feature extends React.Component {
-    render() {
-        const features = Object.keys(this.props.features).map((feature, idx) => {
+class FeatureBox extends React.Component {
+    generateFeatureList = () => {
+        return Object.keys(this.props.features).map((feature, idx) => {
             //Feature with index
             const featureHash = feature + '-' + idx;
       
@@ -32,9 +32,6 @@ class Feature extends React.Component {
                     />
               );
             });
-            ///////////////////////////////////////////////////////////
-            //Feature Container and Header
-            //Can be Component with Feature-Items as children
             return (
             <FeatureType 
                 key={featureHash}
@@ -43,13 +40,18 @@ class Feature extends React.Component {
                 options={options}/>
             );
           });
+    }
+
+    //Render FeatureBox
+    render() {
+        
         return (
             <form className="main__form">
                 <h2>Customize your laptop</h2>
-                {features}
+                {this.generateFeatureList()}
             </form>
         )
     }
 }
 
-export default Feature;
+export default FeatureBox;

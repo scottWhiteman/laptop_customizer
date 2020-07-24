@@ -8,8 +8,9 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   });
 
 class SummaryBox extends React.Component {
-    render() {
-        const summaryItems = Object.keys(this.props.selected).map((feature, idx) => {
+
+    generateSummaryItems = () => {
+        return Object.keys(this.props.selected).map((feature, idx) => {
             const featureHash = feature + '-' + idx;
             const selectedOption = this.props.selected[feature];
       
@@ -22,6 +23,9 @@ class SummaryBox extends React.Component {
                     cost={USCurrencyFormat.format(selectedOption.cost)}/>
             );
         });
+    }
+
+    render() {
         const total = Object.keys(this.props.selected).reduce(
             (acc, curr) => acc + this.props.selected[curr].cost,
             0
@@ -30,7 +34,7 @@ class SummaryBox extends React.Component {
         return (
             <section className="main__summary">
                 <h2>Your cart</h2>
-                {summaryItems}
+                {this.generateSummaryItems()}
                 <SummaryTotal
                     total={USCurrencyFormat.format(total)}/>
           </section>
