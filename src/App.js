@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FeatureTypeItem from './FeatureTypeItem/FeatureTypeItem';
 
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
@@ -44,10 +45,23 @@ class App extends Component {
   };
 
   render() {
+    /* FEATURE COMPONENT */
+    //Get features from given object list
     const features = Object.keys(this.props.features).map((feature, idx) => {
+      //Feature with index
       const featureHash = feature + '-' + idx;
+
+      /////////////////////////////////////////////////////////////
+      //Each option with feature
       const options = this.props.features[feature].map(item => {
-        const itemHash = slugify(JSON.stringify(item));
+        //Slugify turns Object of stuff into a string
+        const jsonItem = JSON.stringify(item)
+        console.log(jsonItem)
+        const itemHash = slugify(jsonItem);
+        console.log(itemHash);
+
+        //Display each feature-item on customizable list
+        //Component? Child of Header
         return (
           <div key={itemHash} className="feature__item">
             <input
@@ -64,7 +78,9 @@ class App extends Component {
           </div>
         );
       });
-
+      ///////////////////////////////////////////////////////////
+      //Feature Container and Header
+      //Can be Component with Feature-Items as children
       return (
         <fieldset className="feature" key={featureHash}>
           <legend className="feature__name">
@@ -75,6 +91,8 @@ class App extends Component {
       );
     });
 
+
+    /*SUMMARY COMPONENT*/
     const summary = Object.keys(this.state.selected).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
       const selectedOption = this.state.selected[feature];
@@ -97,16 +115,26 @@ class App extends Component {
 
     return (
       <div className="App">
+        {/* HEADER COMPONENT */}
         <header>
           <h1>ELF Computing | Laptops</h1>
         </header>
+        {/* HEADER COMPONENT */}
+
         <main>
+          {/* FEATURE COMPONENT */}
           <form className="main__form">
             <h2>Customize your laptop</h2>
+            {/* FEATURE TYPE COMPONENT */}
+            {/* FEATURE TYPE ITEM COMPONENT*/}
             {features}
           </form>
+          {/* FEATURE COMPONENT */}
+
+          {/* SUMMARY COMPONENT */}
           <section className="main__summary">
             <h2>Your cart</h2>
+            {/* SUMMARY FEATUER COMPONENT */}
             {summary}
             <div className="summary__total">
               <div className="summary__total__label">Total</div>
@@ -115,6 +143,7 @@ class App extends Component {
               </div>
             </div>
           </section>
+          {/* SUMMARY COMPONENT */}
         </main>
       </div>
     );
