@@ -19,9 +19,7 @@ class Feature extends React.Component {
             const options = this.props.features[feature].map(item => {
               //Slugify turns Object of stuff into a string
               const jsonItem = JSON.stringify(item)
-              console.log(jsonItem)
               const itemHash = slugify(jsonItem);
-              console.log(itemHash);
               const currencyFormat = USCurrencyFormat.format(item.cost)
               //Display each feature-item on customizable list
               //Component? Child of Header

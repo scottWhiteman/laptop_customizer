@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import Header from './Header/Header';
 import Feature from './Feature/Feature';
-//import FeatureTypeItem from './FeatureTypeItem/FeatureTypeItem';
 
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
 import slugify from 'slugify';
-
 import './App.css';
+import SummaryBox from './SummaryBox/SummaryBox';
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -70,9 +70,7 @@ class App extends Component {
     return (
       <div className="App">
         {/* HEADER COMPONENT */}
-        <header>
-          <h1>ELF Computing | Laptops</h1>
-        </header>
+        <Header />
         {/* HEADER COMPONENT */}
 
         <main>
@@ -84,17 +82,8 @@ class App extends Component {
           {/* FEATURE COMPONENT */}
 
           {/* SUMMARY COMPONENT */}
-          <section className="main__summary">
-            <h2>Your cart</h2>
-            {/* SUMMARY FEATUER COMPONENT */}
-            {summary}
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
-          </section>
+          <SummaryBox 
+            selected={this.state.selected}/>
           {/* SUMMARY COMPONENT */}
         </main>
       </div>
