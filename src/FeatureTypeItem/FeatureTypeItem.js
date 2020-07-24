@@ -8,7 +8,7 @@ class FeatureTypeItem extends React.Component {
                 type="radio"
                 id={this.props.id}
                 className="feature__option"
-                name={this.props.feature}
+                name={this.props.name}
                 checked={this.props.checked}
                 onChange={() => this.props.updateCheck(this.props.feature, this.props.item)}
                 />

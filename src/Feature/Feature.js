@@ -41,6 +41,7 @@ class Feature extends React.Component {
                     key={itemHash}
                     id={itemHash}
                     name={slugify(feature)}
+                    feature={feature}
                     item={item}
                     checked={item.name === this.props.selectedFeature.name}
                     updateCheck={this.props.updateCheck}
