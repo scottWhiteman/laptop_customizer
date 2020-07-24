@@ -26,7 +26,7 @@ class Feature extends React.Component {
                     name={slugify(feature)}
                     feature={feature}
                     item={item}
-                    checked={item.name === this.props.selectedFeature.name}
+                    checked={item.name === this.props.selectedFeature[feature].name}
                     updateCheck={this.props.updateCheck}
                     currency={currencyFormat}
                     />
