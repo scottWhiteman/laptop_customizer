@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/laptop_customizer/static/css/main.72a41afd.chunk.css",
-    "main.js": "/laptop_customizer/static/js/main.b4c11b97.chunk.js",
-    "main.js.map": "/laptop_customizer/static/js/main.b4c11b97.chunk.js.map",
+    "main.js": "/laptop_customizer/static/js/main.62ce2f8e.chunk.js",
+    "main.js.map": "/laptop_customizer/static/js/main.62ce2f8e.chunk.js.map",
     "runtime~main.js": "/laptop_customizer/static/js/runtime~main.11bd55f9.js",
     "runtime~main.js.map": "/laptop_customizer/static/js/runtime~main.11bd55f9.js.map",
     "static/js/2.6549ce60.chunk.js": "/laptop_customizer/static/js/2.6549ce60.chunk.js",
     "static/js/2.6549ce60.chunk.js.map": "/laptop_customizer/static/js/2.6549ce60.chunk.js.map",
     "index.html": "/laptop_customizer/index.html",
-    "precache-manifest.5a0cb61c636495f07be0b2d30c8b4863.js": "/laptop_customizer/precache-manifest.5a0cb61c636495f07be0b2d30c8b4863.js",
+    "precache-manifest.44a47b913a6fd25145f26f35e418c402.js": "/laptop_customizer/precache-manifest.44a47b913a6fd25145f26f35e418c402.js",
     "service-worker.js": "/laptop_customizer/service-worker.js",
     "static/css/main.72a41afd.chunk.css.map": "/laptop_customizer/static/css/main.72a41afd.chunk.css.map"
   }
