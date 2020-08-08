@@ -35,7 +35,6 @@ export default class Main extends React.Component {
         return (
             <main>
                 <FeatureBox
-                    features={this.props.features}
                     selectedFeature={this.state.selected}
                     updateCheck={this.updateFeature}/>
 

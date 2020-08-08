@@ -26,17 +26,12 @@ class SummaryBox extends React.Component {
     }
 
     render() {
-        const total = Object.keys(this.props.selected).reduce(
-            (acc, curr) => acc + this.props.selected[curr].cost,
-            0
-          );
-
         return (
             <section className="main__summary">
                 <h2>Your cart</h2>
                 {this.generateSummaryItems()}
                 <SummaryTotal
-                    total={USCurrencyFormat.format(total)}/>
+                    total={this.props.selected}/>
           </section>
         )
     }
